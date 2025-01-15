@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindCare - Mental Health Support</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #444, #222);
+            position: relative;
+            height: 100vh;
+            padding-top: 60px;
+            transition: background 0.3s ease;
+            will-change: transform;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #fff;
+            letter-spacing: 2px;
+            transition: transform 0.3s;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2em;
+            transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            color: #FFB347;
+            transform: translateY(-5px);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100vh;
+            padding: 0 5%;
+            position: relative;
+            color: #fff;
+            overflow: hidden;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-text {
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-text h1 {
+            font-size: 5em;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: #fff;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .hero-text p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            color: #ccc;
+            animation: fadeInUp 2s ease-out;
+        }
+
+        .hero-text a {
+            text-decoration: none;
+            background-color: #FFB347;
+            color: #000;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+            animation: fadeInUp 2.5s ease-out;
+        }
+
+        .hero-text a:hover {
+            background-color: #fff;
+            color: #FFB347;
+            border: 1px solid #FFB347;
+            transform: translateY(-5px);
+        }
+
+        /* Features Section */
+        .features {
+            background-color: #222;
+            padding: 80px 5%;
+            text-align: center;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .features h2 {
+            font-size: 3.5em;
+            margin-bottom: 40px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .features-grid {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 2s ease-out;
+        }
+
+        .feature {
+            flex: 1;
+            min-width: 300px;
+            padding: 30px;
+            background: #333;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease-out, box-shadow 0.3s;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-out forwards;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.3);
+        }
+
+        .feature h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .feature p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #ccc;
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #333;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        footer p {
+            font-size: 0.9em;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Scroll Animation */
+        .scroll-down {
+            position: absolute;
+            bottom: 20px;
+            font-size: 1.5em;
+            color: #fff;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                justify-content: center;
+                height: auto;
+            }
+
+            .hero-text {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .features-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .feature {
+                min-width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 3.5em;
+            }
+
+            .hero-text p {
+                font-size: 1.2em;
+            }
+
+            .feature h3 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">MindCare</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="cb.html">Chatbot</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Your Mental Wellness Companion</h1>
+            <p>Talk to our AI-powered chatbot and explore resources to boost your mental health and well-being.</p>
+            <a href="cb.html">Get Started</a>
+            
+        </div>
+        <div class="scroll-down">↓</div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Why Choose MindCare?</h2>
+        <div class="features-grid">
+            <div class="feature">
+                <h3>24/7 Chat Support</h3>
+                <p>Our chatbot is available anytime, anywhere, to provide you with the support you need.</p>
+            </div>
+            <div class="feature">
+                <h3>Personalized Advice</h3>
+                <p>Receive customized recommendations tailored to your mental health goals.</p>
+            </div>
+            <div class="feature">
+                <h3>Secure & Private</h3>
+                <p>Your conversations are encrypted and completely confidential.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 MindCare. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Fluid background effect on mouse move
+        let bg = document.querySelector('body');
+
+        window.addEventListener('mousemove', function(e) {
+            let x = e.pageX / window.innerWidth - 0.5;
+            let y = e.pageY / window.innerHeight - 0.5;
+
+            let r = Math.round(x * 255);
+            let g = Math.round(y * 255);
+            let b = Math.round((1 - x) * 255);
+            let rgb = `rgb(${r}, ${g}, ${b})`;
+
+            bg.style.background = `linear-gradient(135deg, #444, #222)`;
+        });
+    </script>
+</body>
+</html>
